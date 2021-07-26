@@ -1,0 +1,108 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage Title="DashBoard" NavigationPage.HasBackButton="False" xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:chart="clr-namespace:Syncfusion.SfChart.XForms;assembly=Syncfusion.SfChart.XForms"
+             xmlns:cards="clr-namespace:Syncfusion.XForms.Cards;assembly=Syncfusion.Cards.XForms"
+             xmlns:viewmodal="clr-namespace:SimpleHealthDashboard.ViewModel"
+             xmlns:converters="clr-namespace:SimpleHealthDashboard.Converters"
+             x:Class="SimpleHealthDashboard.Cards">
+    
+    <ContentPage.BindingContext>
+        <viewmodal:HealthDataViewModel/>
+    </ContentPage.BindingContext>
+    
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <chart:ChartColorCollection x:Key="Colors">
+                <Color>#00c853</Color>
+            </chart:ChartColorCollection>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+    <ContentPage.Content >
+        <AbsoluteLayout>
+            <StackLayout AbsoluteLayout.LayoutBounds="0,0,1,1"
+                         AbsoluteLayout.LayoutFlags="All"
+                         IsVisible="{Binding IsLoading, Converter={converters:BooleanInverter} }">
+                <Grid  Padding="10,20,10,20" RowSpacing="10" ColumnSpacing="10">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="200"/>
+                        <RowDefinition Height="100"/>
+                        <RowDefinition Height="150"/>
+                    </Grid.RowDefinitions>
+
+                    <cards:SfCardView Grid.Row="0" Grid.ColumnSpan="2" Padding="10,0,10,0">
+                        <StackLayout>
+                            <StackLayout Orientation="Horizontal" HorizontalOptions="Start" Padding="0,20,0,0">
+                                <Image Source="Steps.png" WidthRequest="25"  HeightRequest="25" VerticalOptions="Start" ></Image>
+                                <Label Text="Steps" FontSize="Medium" HorizontalOptions="Center" TextColor="#00c853"></Label>
+                            </StackLayout>
+                            <chart:SfChart x:Name="Chart" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                                <chart:SfChart.PrimaryAxis >
+                                    <chart:DateTimeAxis ShowMajorGridLines="False" >
+                                        <chart:DateTimeAxis.LabelStyle>
+                                            <chart:ChartAxisLabelStyle LabelFormat = "dd-MMM">
+                                            </chart:ChartAxisLabelStyle>
+                                        </chart:DateTimeAxis.LabelStyle>
+                                    </chart:DateTimeAxis>
+                                </chart:SfChart.PrimaryAxis>
+
+                                <chart:SfChart.SecondaryAxis >
+                                    <chart:NumericalAxis ShowMajorGridLines="False"  IsVisible="False">
+
+                                    </chart:NumericalAxis>
+                                </chart:SfChart.SecondaryAxis>
+
+                                <chart:SfChart.Series>
+                                    <chart:ColumnSeries ItemsSource="{Binding HealthDataList}"  EnableAnimation="True" AnimationDuration="0.8" Label="steps" XBindingPath="Date" YBindingPath="Steps" EnableTooltip="True">
+                                        <chart:ColumnSeries.ColorModel>
+                                            <chart:ChartColorModel Palette="Custom" CustomBrushes="{StaticResource Colors}"/>
+                                        </chart:ColumnSeries.ColorModel>
+                                    </chart:ColumnSeries>
+                                </chart:SfChart.Series>
+                            </chart:SfChart>
+                        </StackLayout>
+                    </cards:SfCardView>
+
+                    <cards:SfCardView Grid.Row="1" Grid.ColumnSpan="2" Padding="10,0,10,0">
+                        <StackLayout>
+                            <StackLayout Orientation="Horizontal" HorizontalOptions="Start" Padding="0,20,0,0">
+                                <Image Source="ActiveTime.png" WidthRequest="25"  HeightRequest="25" VerticalOptions="Start" ></Image>
+                                <Label Text="Total Distance" FontSize="Medium" HorizontalOptions="Center" TextColor="#ffb300"></Label>
+                            </StackLayout>
+                            <StackLayout Orientation="Horizontal" HorizontalOptions="Start" Padding="5,5,0,0">
+                                <Label x:Name="TotalDistance"  Text="{Binding TotalDistance,StringFormat='{0} km'}" TextColor="#424242" FontSize="Medium"></Label>
+                                <Label Text=" | " TextColor="#424242" FontSize="Medium"></Label>
+                                <Label x:Name="TotalCalories"  Text="{Binding TotalCal,StringFormat='{0} kcal'}" TextColor="#424242" FontSize="Medium"></Label>
+                            </StackLayout>
+                        </StackLayout>
+                    </cards:SfCardView>
+
+                    <cards:SfCardView Grid.Row="2" Grid.Column="0">
+                        <StackLayout>
+                            <StackLayout Orientation="Horizontal" HorizontalOptions="Center" Padding="0,20,0,0">
+                                <Image Source="HeartRate.png" WidthRequest="25"  HeightRequest="25" VerticalOptions="Start" ></Image>
+                                <Label Text="Heart Rate" FontSize="Medium" HorizontalOptions="Center" TextColor="#e91e63"></Label>
+                            </StackLayout>
+                            <Label x:Name="Heartbeat"  Text="{Binding LastHeartRateReading,StringFormat='{0} Bpm'}" TextColor="#424242" FontSize="Medium" VerticalOptions="Center" HorizontalOptions="Center"  Padding="0,20,0,0"></Label>
+                            <Label x:Name="HeartbeatDate" Text="{Binding LastHeartRateReadingDate,StringFormat='Last reading {0}'}" TextColor="Gray" FontSize="Micro" VerticalOptions="Center" HorizontalOptions="Center" Padding="0,15,0,0"></Label>
+                        </StackLayout>
+                    </cards:SfCardView>
+                </Grid>
+            </StackLayout>
+            <StackLayout
+                x:Name="aiLayout"
+                IsVisible="{Binding IsLoading}"
+                AbsoluteLayout.LayoutBounds="0,0,1,1"
+                AbsoluteLayout.LayoutFlags="All"
+                BackgroundColor="Gray" Opacity="0.5">
+                <ActivityIndicator
+                    x:Name="ai"
+                    IsRunning="{Binding IsLoading}"
+                    HorizontalOptions="CenterAndExpand"
+                    VerticalOptions="CenterAndExpand"
+                    Color="Black" />
+            </StackLayout>
+        </AbsoluteLayout>
+    </ContentPage.Content>
+</ContentPage>

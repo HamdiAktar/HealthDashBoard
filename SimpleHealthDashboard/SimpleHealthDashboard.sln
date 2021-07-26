@@ -1,0 +1,35 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30907.101
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SimpleHealthDashboard.Android", "SimpleHealthDashboard\SimpleHealthDashboard.Android\SimpleHealthDashboard.Android.csproj", "{43747F40-9587-4925-90B7-52F578804E98}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SimpleHealthDashboard", "SimpleHealthDashboard\SimpleHealthDashboard\SimpleHealthDashboard.csproj", "{22E99AA4-3DC4-497C-8E8C-2778F5E0F804}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{43747F40-9587-4925-90B7-52F578804E98}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{43747F40-9587-4925-90B7-52F578804E98}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{43747F40-9587-4925-90B7-52F578804E98}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{43747F40-9587-4925-90B7-52F578804E98}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{43747F40-9587-4925-90B7-52F578804E98}.Release|Any CPU.Build.0 = Release|Any CPU
+		{43747F40-9587-4925-90B7-52F578804E98}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{22E99AA4-3DC4-497C-8E8C-2778F5E0F804}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{22E99AA4-3DC4-497C-8E8C-2778F5E0F804}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{22E99AA4-3DC4-497C-8E8C-2778F5E0F804}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{22E99AA4-3DC4-497C-8E8C-2778F5E0F804}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{22E99AA4-3DC4-497C-8E8C-2778F5E0F804}.Release|Any CPU.Build.0 = Release|Any CPU
+		{22E99AA4-3DC4-497C-8E8C-2778F5E0F804}.Release|Any CPU.Deploy.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {C431AB61-F82A-4C65-98D9-7835D667756A}
+	EndGlobalSection
+EndGlobal

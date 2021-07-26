@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage Title="Authorization" xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="SimpleHealthDashboard.MainPage">
+
+    <StackLayout>
+        
+        <Image Source="Health.jpg"
+               HeightRequest="400"
+               HorizontalOptions="Center"/>
+
+        <Button Text="Authorize Access to Health kit" Clicked="Authorize_Button_clicked" HorizontalOptions="Center"/>
+
+        <Button Text="Fetch Data" Clicked="Fetch_Button_Clicked" HorizontalOptions="Center"/>
+
+    </StackLayout>
+</ContentPage>
