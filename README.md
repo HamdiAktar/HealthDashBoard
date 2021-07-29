@@ -1,6 +1,6 @@
 #  A Simple Health Dashboard  
 
-This project is a MVVM Xamarin.Fomrs app that shows how to create a Huawei Health integrated dashboard to display some basic information like the number of steps, total distance, total calories and heart rate. 
+This project is a MVVM Xamarin.Forms app that shows how to create a Huawei Health integrated dashboard to display some basic information like the number of steps, total distance, total calories and heart rate. 
 
 <p align="middle">
  <img src="./Assets/Screenshot1.jpg" width=20% />
@@ -18,5 +18,5 @@ To run this app, you need to be a registered as Huawei Mobile Developer and crea
 ## References
 
 - [Official Health Kit documnet](https://developer.huawei.com/consumer/en/doc/development/HMS-Plugin-Guides/health-introduce-0000001073349887)
-- [Medium Article]() 
+- [Medium Article](https://medium.com/huawei-developers/create-a-huawei-health-integrated-dashboard-in-xamarin-forms-b9b3dfab7247) 
 
